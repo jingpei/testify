@@ -29,10 +29,8 @@ describe('the todo.util methods', function() {
       expect(todo.util.isValidTodoName).to.be.an('function');
     });
     it('should return whether a todo name is valid or not', function(){
-      var invalid = "  buy milk  ";
-      expect(todo.util.isValidTodoName(invalid)).to.be.false;
-      var trimmed = todo.util.trimTodoName(invalid);
-      expect(todo.util.isValidTodoName(trimmed)).to.be.true;
+      expect(todo.util.isValidTodoName('a      ')).to.be.false;
+      expect(todo.util.isValidTodoName('buy milk')).to.be.true;
     });
   });
 
