@@ -6,8 +6,12 @@ describe('the todo.App', function() {
   describe('the todo object', function(){
 
     it('should have all the necessary methods', function(){
-      expect(todo.setup).to.be.an('function');
-      expect(todo.init).to.be.an('function');
+      todo.should.have.property('setup');
+      todo.should.have.property('init');
+      assert.isFunction(todo.setup, 'setup is a todo function');
+      assert.isFunction(todo.init, 'init is a todo function');
+      // expect(todo.setup).to.be.an('function');
+      // expect(todo.init).to.be.an('function');
     });
   });
 });
@@ -21,6 +25,7 @@ describe('the todo.util methods', function() {
       var withSpaces = "   get groceries  ";
       var trimmed = todo.util.trimTodoName(withSpaces);
       expect(trimmed).to.be.equal('get groceries');
+      trimmed.should.have.length(13);
     });
   });
 
